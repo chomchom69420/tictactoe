@@ -2,8 +2,22 @@
 
 //choosing player 1 and player 2 symbols
 
-let player1=prompt("Choose player 1 symbol: ");
-let player2=prompt("Choose player 2 symbol: ");
+let player1="X";
+let player2="O";
+
+player1=prompt("Choose player 1 symbol: ");
+player2=prompt("Choose player 2 symbol: ");
+
+
+
+var clicked_id = "";
+
+var cliked = [
+    [0,0,0],
+    [0,0,0],
+    [0,0,0]
+];
+
 
 var board = [
     [" "," "," "],
@@ -11,6 +25,10 @@ var board = [
     [" "," "," "]
 ];
 
+function writeSym(passed_id)
+{
+    alert(passed_id);
+}
 
 
 var turn = 1;
@@ -96,6 +114,11 @@ for(var i=0;i<3;i++)
 
 box[0][0].onclick = function()
 {
+    //checking for clicked or not 
+    if(clicked[0][0]===1)
+    {
+        return;
+    }
     if(turn===1)
     {
         box[0][0].innerHTML = player1;
