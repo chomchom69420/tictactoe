@@ -9,10 +9,9 @@ player1=prompt("Choose player 1 symbol: ");
 player2=prompt("Choose player 2 symbol: ");
 
 
-
 var clicked_id = "";
 
-var cliked = [
+var clicked = [
     [0,0,0],
     [0,0,0],
     [0,0,0]
@@ -114,11 +113,11 @@ for(var i=0;i<3;i++)
 
 box[0][0].onclick = function()
 {
-    //checking for clicked or not 
     if(clicked[0][0]===1)
     {
-        return;
+        throw "exit";
     }
+    clicked[0][0]=1;
     if(turn===1)
     {
         box[0][0].innerHTML = player1;
@@ -139,6 +138,11 @@ box[0][0].onclick = function()
 
 box[0][1].onclick = function()
 {
+    if(clicked[0][1]===1)
+    {
+        throw "exit";
+    }
+    clicked[0][1]=1;
     if(turn===1)
     {
         box[0][1].innerHTML = player1;
@@ -159,6 +163,11 @@ box[0][1].onclick = function()
 
 box[0][2].onclick = function()
 {
+    if(clicked[0][2]===1)
+    {
+        throw "exit";
+    }
+    clicked[0][2]=1;
     if(turn===1)
     {
         box[0][2].innerHTML = player1;
@@ -179,6 +188,11 @@ box[0][2].onclick = function()
 
 box[1][0].onclick = function()
 {
+    if(clicked[1][0]===1)
+    {
+        throw "exit";
+    }
+    clicked[1][0]=1;
     if(turn===1)
     {
         box[1][0].innerHTML = player1;
@@ -199,6 +213,11 @@ box[1][0].onclick = function()
 
 box[1][1].onclick = function()
 {
+    if(clicked[1][1]===1)
+    {
+        throw "exit";
+    }
+    clicked[1][1]=1;
     if(turn===1)
     {
         box[1][1].innerHTML = player1;
@@ -219,6 +238,11 @@ box[1][1].onclick = function()
 
 box[1][2].onclick = function()
 {
+    if(clicked[1][2]===1)
+    {
+        throw "exit";
+    }
+    clicked[1][2]=1;
     if(turn===1)
     {
         box[1][2].innerHTML = player1;
@@ -239,6 +263,11 @@ box[1][2].onclick = function()
 
 box[2][0].onclick = function()
 {
+    if(clicked[2][0]===1)
+    {
+        throw "exit";
+    }
+    clicked[2][0]=1;
     if(turn===1)
     {
         box[2][0].innerHTML = player1;
@@ -259,6 +288,11 @@ box[2][0].onclick = function()
 
 box[2][1].onclick = function()
 {
+    if(clicked[2][1]===1)
+    {
+        throw "exit";
+    }
+    clicked[2][1]=1;
     if(turn===1)
     {
         box[2][1].innerHTML = player1;
@@ -279,6 +313,11 @@ box[2][1].onclick = function()
 
 box[2][2].onclick = function()
 {
+    if(clicked[2][2]===1)
+    {
+        throw "exit";
+    }
+    clicked[2][2]=1;
     if(turn===1)
     {
         box[2][2].innerHTML = player1;
