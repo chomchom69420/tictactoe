@@ -8,6 +8,8 @@ let player2="O";
 player1=prompt("Choose player 1 symbol: ");
 player2=prompt("Choose player 2 symbol: ");
 
+var reloadButton = document.getElementById("reload");
+
 
 var clicked_id = "";
 
@@ -110,6 +112,34 @@ for(var i=0;i<3;i++)
         box[i][j]=document.getElementById(""+i+j);
     }
 }
+
+reloadButton.onclick= function()
+{
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+
+            //clearing the board array
+            board = [
+                [" "," "," "],
+                [" "," "," "],
+                [" "," "," "]
+            ];
+
+
+            //clearing the clicked array
+            clicked = [
+                [0,0,0],
+                [0,0,0],
+                [0,0,0]
+            ];
+
+            document.getElementById(""+i+j).innerHTML=" ";
+            
+        }
+    }
+};
 
 box[0][0].onclick = function()
 {
