@@ -10,6 +10,8 @@ player2=prompt("Choose player 2 symbol: ");
 
 var reloadButton = document.getElementById("reload");
 
+var audio = document.getElementById("audio");
+var win = document.getElementById("win");
 
 var clicked_id = "";
 
@@ -31,8 +33,11 @@ function writeSym(passed_id)
     alert(passed_id);
 }
 
-
 var turn = 1;
+
+var won=0;
+
+
 
 function checkWin()
 {
@@ -40,7 +45,6 @@ function checkWin()
 
     //0 for drawn, -1 for incomplete, 1 for won
 
-    var won=0; 
 
     /*block for won checking starts*/
 
@@ -51,6 +55,7 @@ function checkWin()
             continue;
         if(board[0][c]===board[1][c] && board[1][c]===board[2][c])
         {
+            won=1;
             return 1;
         }
     }
@@ -62,6 +67,7 @@ function checkWin()
             continue;
         if(board[r][0]===board[r][1] && board[r][1]===board[r][2])
         {
+            won=1;
             return 1;
         }
     }
@@ -70,10 +76,12 @@ function checkWin()
     
     if(board[0][0]===board[1][1] && board[1][1]===board[2][2] && board[0][0]!=" ")
     {
+        won=1;
         return 1;
     }
     if(board[2][0]===board[1][1] && board[1][1]===board[0][2] && board[0][2]!=" ")
     {
+        won=1;
         return 1;
     }
     
@@ -135,18 +143,37 @@ reloadButton.onclick= function()
                 [0,0,0]
             ];
 
+            //setting the won flag to 0
+            won=0;
+
             document.getElementById(""+i+j).innerHTML=" ";
-            
+
         }
     }
 };
 
+var boardDiv = document.getElementById("board");
+
+boardDiv.onclick = function()
+{
+    /*
+        if we click anywhere on the board after winning,
+        it will simulate a click on the reload button
+    */
+    if(won===1)
+    {
+        reloadButton.click();
+    }
+}
+
 box[0][0].onclick = function()
 {
+   
     if(clicked[0][0]===1)
     {
         throw "exit";
     }
+    audio.play();
     clicked[0][0]=1;
     if(turn===1)
     {
@@ -168,10 +195,12 @@ box[0][0].onclick = function()
 
 box[0][1].onclick = function()
 {
+    
     if(clicked[0][1]===1)
     {
         throw "exit";
     }
+    audio.play();
     clicked[0][1]=1;
     if(turn===1)
     {
@@ -186,7 +215,10 @@ box[0][1].onclick = function()
         turn=1;
     }
     if(checkWin()===1)
+    {
         alert("The game has been won by player "+ ((turn==2)?1:2));
+        win.play();
+    }
     else if(checkWin()===0)
         alert("The game is drawn!");
 };
@@ -197,6 +229,7 @@ box[0][2].onclick = function()
     {
         throw "exit";
     }
+    audio.play();
     clicked[0][2]=1;
     if(turn===1)
     {
@@ -211,7 +244,10 @@ box[0][2].onclick = function()
         turn=1;
     }
     if(checkWin()===1)
+    {
         alert("The game has been won by player "+ ((turn==2)?1:2));
+        win.play();
+    }
     else if(checkWin()===0)
         alert("The game is drawn!");
 };
@@ -222,6 +258,7 @@ box[1][0].onclick = function()
     {
         throw "exit";
     }
+    audio.play();
     clicked[1][0]=1;
     if(turn===1)
     {
@@ -236,7 +273,10 @@ box[1][0].onclick = function()
         turn=1;
     }
     if(checkWin()===1)
+    {
         alert("The game has been won by player "+ ((turn==2)?1:2));
+        win.play();
+    }
     else if(checkWin()===0)
         alert("The game is drawn!");
 };
@@ -247,6 +287,7 @@ box[1][1].onclick = function()
     {
         throw "exit";
     }
+    audio.play();
     clicked[1][1]=1;
     if(turn===1)
     {
@@ -261,7 +302,10 @@ box[1][1].onclick = function()
         turn=1;
     }
     if(checkWin()===1)
+    {
         alert("The game has been won by player "+ ((turn==2)?1:2));
+        win.play();
+    }
     else if(checkWin()===0)
         alert("The game is drawn!");
 };
@@ -272,6 +316,7 @@ box[1][2].onclick = function()
     {
         throw "exit";
     }
+    audio.play();
     clicked[1][2]=1;
     if(turn===1)
     {
@@ -286,7 +331,10 @@ box[1][2].onclick = function()
         turn=1;
     }
     if(checkWin()===1)
+    {
         alert("The game has been won by player "+ ((turn==2)?1:2));
+        win.play();
+    }
     else if(checkWin()===0)
         alert("The game is drawn!");
 };
@@ -297,6 +345,7 @@ box[2][0].onclick = function()
     {
         throw "exit";
     }
+    audio.play();
     clicked[2][0]=1;
     if(turn===1)
     {
@@ -311,7 +360,10 @@ box[2][0].onclick = function()
         turn=1;
     }
     if(checkWin()===1)
+    {
         alert("The game has been won by player "+ ((turn==2)?1:2));
+        win.play();
+    }
     else if(checkWin()===0)
         alert("The game is drawn!");
 };
@@ -322,6 +374,7 @@ box[2][1].onclick = function()
     {
         throw "exit";
     }
+    audio.play();
     clicked[2][1]=1;
     if(turn===1)
     {
@@ -336,7 +389,10 @@ box[2][1].onclick = function()
         turn=1;
     }
     if(checkWin()===1)
+    {
         alert("The game has been won by player "+ ((turn==2)?1:2));
+        win.play();
+    }
     else if(checkWin()===0)
         alert("The game is drawn!");
 };
@@ -347,6 +403,7 @@ box[2][2].onclick = function()
     {
         throw "exit";
     }
+    audio.play();
     clicked[2][2]=1;
     if(turn===1)
     {
@@ -361,7 +418,10 @@ box[2][2].onclick = function()
         turn=1;
     }
     if(checkWin()===1)
+    {
         alert("The game has been won by player "+ ((turn==2)?1:2));
+        win.play();
+    }
     else if(checkWin()===0)
         alert("The game is drawn!");
 };
